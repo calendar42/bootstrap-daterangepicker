@@ -86,21 +86,29 @@
         }
 
         var DRPTemplate = '<div class="daterangepicker dropdown-menu">' +
+                '<div class="ranges">' +
+                  // '<div class="range_inputs">' +
+                  //   '<div class="daterangepicker_start_input" style="float: left">' +
+                  //     '<label for="daterangepicker_start">' + this.locale.fromLabel + '</label>' +
+                  //     '<input class="input-mini" type="text" name="daterangepicker_start" value="" disabled="disabled" />' +
+                  //   '</div>' +
+                  //   '<div class="daterangepicker_end_input" style="float: left; padding-left: 11px">' +
+                  //     '<label for="daterangepicker_end">' + this.locale.toLabel + '</label>' +
+                  //     '<input class="input-mini" type="text" name="daterangepicker_end" value="" disabled="disabled" />' +
+                  //   '</div>' +
+                    
+                  // '</div>' +
+                  
+                '</div>' +
+                '<div class="custom-range-selection">' +
                 '<div class="calendar left"></div>' +
                 '<div class="calendar right"></div>' +
-                '<div class="ranges">' +
-                  '<div class="range_inputs">' +
-                    '<div class="daterangepicker_start_input" style="float: left">' +
-                      '<label for="daterangepicker_start">' + this.locale.fromLabel + '</label>' +
-                      '<input class="input-mini" type="text" name="daterangepicker_start" value="" disabled="disabled" />' +
-                    '</div>' +
-                    '<div class="daterangepicker_end_input" style="float: left; padding-left: 11px">' +
-                      '<label for="daterangepicker_end">' + this.locale.toLabel + '</label>' +
-                      '<input class="input-mini" type="text" name="daterangepicker_end" value="" disabled="disabled" />' +
-                    '</div>' +
-                    '<button class="' + this.applyClass + ' applyBtn" disabled="disabled">' + this.locale.applyLabel + '</button>&nbsp;' +
-                    '<button class="' + this.clearClass + ' clearBtn">' + this.locale.clearLabel + '</button>' +
-                  '</div>' +
+
+                '<div class="clearfix"></div>' +
+                '<div class="button-bar" style="padding: 4px 4px 14px ;">' +
+                    '<button class="' + this.applyClass + ' applyBtn pull-right" disabled="disabled">' + this.locale.applyLabel + '</button>&nbsp;' +
+                    '<button class="' + this.clearClass + ' clearBtn btn btn-link pull-right">' + this.locale.clearLabel + '</button>' +
+                '</div>' +
                 '</div>' +
               '</div>';
 
@@ -254,8 +262,8 @@
         this.container.on('mousedown', $.proxy(this.mousedown, this));
         this.container.find('.calendar').on('click', '.prev', $.proxy(this.clickPrev, this));
         this.container.find('.calendar').on('click', '.next', $.proxy(this.clickNext, this));
-        this.container.find('.ranges').on('click', 'button.applyBtn', $.proxy(this.clickApply, this));
-        this.container.find('.ranges').on('click', 'button.clearBtn', $.proxy(this.clickClear, this));
+        this.container.find('.button-bar').on('click', 'button.applyBtn', $.proxy(this.clickApply, this));
+        this.container.find('.button-bar').on('click', 'button.clearBtn', $.proxy(this.clickClear, this));
 
         this.container.find('.calendar').on('click', 'td.available', $.proxy(this.clickDate, this));
         this.container.find('.calendar').on('mouseenter', 'td.available', $.proxy(this.enterDate, this));
@@ -402,7 +410,7 @@
 
                 this.changed = true;
 
-                this.container.find('.calendar').hide();
+                // this.container.find('.calendar').hide();
                 this.hide();
             }
         },
